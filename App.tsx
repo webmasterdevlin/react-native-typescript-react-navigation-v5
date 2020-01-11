@@ -17,11 +17,16 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import RootNavigation from './app/navigation/root-navigation';
+import { Provider as PaperProvider } from 'react-native-paper';
 
 declare var global: { HermesInternal: null | {} };
 
 const App = () => {
-  return (<RootNavigation />);
+  return (
+    <PaperProvider>
+      <RootNavigation />
+    </PaperProvider>
+  );
 };
 
 const styles = StyleSheet.create({

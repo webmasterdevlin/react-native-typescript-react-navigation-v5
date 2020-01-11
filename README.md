@@ -38,6 +38,22 @@ additional configuration
 
 ![app](./assets/android.png)
 
+#### Adding React Native Paper
+```sh
+$ yarn add react-native-paper
+$ yarn add react-native-vector-icons
+```
+then link the react native vector icons
+```sh
+$ react-native link react-native-vector-icons
+```
+
+create the directories and files below
+- app/auth/LoginScreen.tsx
+- app/navigation/root-navigation.tsx 
+
+Just copy and paste the content of each file. Also edit the App.tsx
+
 To run the app
 ```sh
 $ npm run android
@@ -47,12 +63,4 @@ or
 $ npm run ios
 ```
 
-![app](./assets/app.png)
-
-create the directories and files below
-- app/auth/LoginScreen.tsx
-- app/navigation/root-navigation.tsx 
-
-Just copy and paste the content of each file. Also edit the App.tsx
-
-![app](./assets/login.png)
+![app](./assets/react-native-paper.png)
