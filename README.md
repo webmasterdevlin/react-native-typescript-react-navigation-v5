@@ -6,7 +6,12 @@ Let's create a React Native app with TypeScript and React Navigation vNext (5.0)
 - [nodejs](https://nodejs.org/en/) (this includes NPM package manager)
 - [vscode](https://code.visualstudio.com/)
 - [yarn](https://yarnpkg.com/lang/en/) (optional NPM package manager)
+- uninstall the legacy react-native-cli
 
+```sh
+$ npm uninstall -g react-native-cli
+```
+Then start creating a React Native in TypeScript project
 ```sh
 $ npx react-native init MyRnProject --template react-native-template-typescript@latest
 ```
