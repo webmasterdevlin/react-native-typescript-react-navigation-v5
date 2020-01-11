@@ -40,8 +40,8 @@ additional configuration
 
 #### Adding React Native Paper
 ```sh
-$ yarn add react-native-paper
-$ yarn add react-native-vector-icons
+$ npm install react-native-paper
+$ npm install react-native-vector-icons
 ```
 then link the react native vector icons
 ```sh
