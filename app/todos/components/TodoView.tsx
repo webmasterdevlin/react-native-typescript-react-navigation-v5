@@ -31,7 +31,8 @@ const TodoView: React.FC<IProps> = ({ item, removeTodoFromList }) => {
 
     return (
         <>
-            <List.Item title={item.title} description={item.description}
+            <List.Item onPress={() => setVisible(true)}
+                title={item.title} description={item.description}
                 right={otherProps => {
                     if (item.finished) {
                         return (
@@ -42,6 +43,36 @@ const TodoView: React.FC<IProps> = ({ item, removeTodoFromList }) => {
                     }
                 }}
             />
+            <Portal>
+                <Dialog visible={visible}
+                    onDismiss={() => setVisible(false)}>
+                    <Dialog.Title>Edit your todo</Dialog.Title>
+                    <Dialog.Content>
+                        <View style={{ marginBottom: 20 }}>
+                            <View style={styles.divider} />
+                            <TextInput />
+                            <View style={styles.divider} />
+                            <TextInput />
+                        </View>
+                        <View style={{ flexDirection: 'row', alignContent: 'center' }}>
+                            <Switch />
+                            <Paragraph style={{ paddingLeft: 16, alignSelf: 'center' }}>
+                                Finished
+                            </Paragraph>
+                        </View>
+                        <HelperText type="error">{error}</HelperText>
+                    </Dialog.Content>
+                    <Dialog.Actions>
+                        <Button loading={deleteLoading}
+                            onPress={() => deleteTodoFromDialog()} >
+                            delete
+                        </Button>
+                        <View style={{ flex: 1 }} />
+                        <Button onPress={() => setVisible(false)} >Cancel</Button>
+                        <Button >Update</Button>
+                    </Dialog.Actions>
+                </Dialog>
+            </Portal>
         </>
     )
 }
