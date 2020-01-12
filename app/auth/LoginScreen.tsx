@@ -15,6 +15,29 @@ const LoginScreen: React.FC<any> = () => {
                 <Headline style={styles.appTitle} >Todo App</Headline>
                 <Paragraph style={styles.appDesc}>Inmeta React Native Course</Paragraph>
             </View>
+            <>
+                <View style={styles.divider} />
+                <TextInput onChange={() => { }} label="Username or email" />
+            </>
+            <>
+                <View style={styles.divider} />
+                <TextInput onChange={() => { }} label="Password" secureTextEntry />
+            </>
+            <>
+                <View style={styles.divider} />
+                <Button disabled={false}
+                    style={styles.btn} mode="contained"
+                    onPress={() => { }}>Login</Button>
+                <View style={styles.divider} />
+                <View style={styles.divider} />
+            </>
+            <>
+                <Portal>
+                    <Snackbar visible={false} onDismiss={() => { }}>
+                        Error
+                    </Snackbar>
+                </Portal>
+            </>
         </View>
     )
 }
