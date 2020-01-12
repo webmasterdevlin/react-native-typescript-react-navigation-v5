@@ -29,8 +29,14 @@ const TodoListScreen: React.FC<void> = () => {
     }
 
     const handleAddToList = (value: ITodoModel) => {
-        setTodos([...todos, value])
-        // const newArray = array.push(value) // reference
+        setTodos([...todos, value]);
+    }
+
+    const handleUpdateList = (value: ITodoModel) => {
+        const index = todos.findIndex(todo => todo.id === value.id);
+        let newTodos = todos;
+        newTodos[index] = value;
+        setTodos([...newTodos])
     }
 
     React.useEffect(() => {
@@ -50,6 +56,7 @@ const TodoListScreen: React.FC<void> = () => {
                         {todos.map(todo => (
                             <View key={todo.id}>
                                 <TodoView
+                                    updateList={handleUpdateList}
                                     removeTodoFromList={handleDeleteFromList}
                                     item={todo} />
                             </View>

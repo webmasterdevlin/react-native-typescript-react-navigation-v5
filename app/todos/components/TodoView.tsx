@@ -5,18 +5,24 @@ import {
     TextInput, Button, Switch, HelperText
 } from 'react-native-paper';
 import { ITodoModel } from '../todo-model';
-import { deleteTodo } from '../todo-service';
+import { deleteTodo, putTodo } from '../todo-service';
 
 interface IProps {
     item: ITodoModel;
-    removeTodoFromList: (event: string) => void
+    removeTodoFromList: (event: string) => void;
+    updateList: (event: ITodoModel) => void;
 }
 
-const TodoView: React.FC<IProps> = ({ item, removeTodoFromList }) => {
+const TodoView: React.FC<IProps> = ({ item, removeTodoFromList, updateList }) => {
 
     const [visible, setVisible] = React.useState<boolean>(false);
     const [deleteLoading, setDeleteLoading] = React.useState<boolean>(false)
     const [error, setError] = React.useState<string>('')
+    const [todoForUpdate,
+        setTodoForUpdate] = React.useState<ITodoModel>(
+            {} as ITodoModel
+        );
+    const [updateLoading, setUpdateLoading] = React.useState<boolean>(false);
 
     const deleteTodoFromDialog = async () => {
         setDeleteLoading(true);
@@ -27,6 +33,43 @@ const TodoView: React.FC<IProps> = ({ item, removeTodoFromList }) => {
             setError(e.message)
         }
         setDeleteLoading(false);
+    }
+
+    const handleTitleChange = (input: string) => {
+        let todo: ITodoModel = { ...todoForUpdate };
+        todo.title = input;
+        setTodoForUpdate(todo);
+    }
+
+    const handleDescriptionChange = (input: string) => {
+        let todo: ITodoModel = { ...todoForUpdate };
+        todo.description = input;
+        setTodoForUpdate(todo);
+    }
+
+    const handleFinishedChange = () => {
+        setTodoForUpdate({
+            ...todoForUpdate,
+            finished: !todoForUpdate.finished,
+        })
+    }
+
+    const updateTodoFromDialog = async () => {
+        if (todoForUpdate.title.length === 0 ||
+            todoForUpdate.description.length === 0
+        ) {
+            setError('Title and description are required');
+            return;
+        }
+        setUpdateLoading(true);
+        try {
+            await putTodo(todoForUpdate);
+            updateList(todoForUpdate);
+            setVisible(false)
+        } catch (e) {
+            setError(error)
+        }
+        setUpdateLoading(false);
     }
 
     return (
