@@ -7,8 +7,18 @@ import { ITodoModel } from '../todo-model';
 import { getTodos } from '../todo-service';
 
 const TodoListScreen: React.FC<void> = () => {
-    const [todos, setTodos] = React.useState<ITodoModel[]>([])
-    const [loading, setLoading] = React.useState<boolean>(false)
+    const [todos, setTodos] = React.useState<ITodoModel[]>([]);
+    const [loading, setLoading] = React.useState<boolean>(false);
+
+    const fetch = async () => {
+        const { data } = await getTodos(); // response.data
+        setTodos(data)
+    }
+
+    React.useEffect(() => {
+        fetch()
+    }, [])
+
     return (
         <>
             {loading ? (
