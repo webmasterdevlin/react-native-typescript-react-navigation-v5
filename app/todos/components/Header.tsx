@@ -96,7 +96,7 @@ const Header: FC<IProps> = ({ text, updateList }) => {
                             loading={createLoading}
                             onPress={() => handleCreateTodoFromDialog()}>
                             Add
-            </Button>
+                          </Button>
                     </Dialog.Actions>
                 </Dialog>
             </Portal>
