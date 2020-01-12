@@ -11,8 +11,10 @@ const TodoListScreen: React.FC<void> = () => {
     const [loading, setLoading] = React.useState<boolean>(false);
 
     const fetch = async () => {
+        setLoading(true);
         const { data } = await getTodos(); // response.data
-        setTodos(data)
+        setTodos(data);
+        setLoading(false);
     }
 
     React.useEffect(() => {

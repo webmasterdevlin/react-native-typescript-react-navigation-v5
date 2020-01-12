@@ -2,11 +2,11 @@ import * as React from 'react';
 import { NavigationNativeContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../auth/LoginScreen';
-import TodoListScreen from '../navigation/root-navigation'
+import TodoListScreen from '../todos/screens/TodoListScreen'
 
 const Stack = createStackNavigator();
 
-export default function RootNavigation() {
+const RootNavigation = () => {
     return (
         <NavigationNativeContainer>
             <Stack.Navigator initialRouteName="loginScreen">
@@ -21,3 +21,4 @@ export default function RootNavigation() {
         </NavigationNativeContainer>
     );
 }
+export default RootNavigation;
