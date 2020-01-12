@@ -31,7 +31,7 @@ const TodoView: React.FC<IProps> = ({ item, removeTodoFromList, updateList }) =>
 
     useEffect(() => {
         setTodoForUpdate(item);
-    }, [item]);
+    }, []);
 
     const deleteTodoFromDialog = async () => {
         setDeleteLoading(true);
