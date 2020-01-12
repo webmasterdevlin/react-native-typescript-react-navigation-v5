@@ -1,56 +1,49 @@
 import React from 'react';
-import { View, Text } from 'react-native'
-import { Button } from 'react-native-paper';
+import { View, StyleSheet, StatusBar } from 'react-native';
+import {
+    Headline, Paragraph, TextInput, Button, Snackbar, Portal
+} from 'react-native-paper';
 
-class LoginScreen extends React.Component {
-    state = {
-        firstName: 'old default value'
-    }
 
-    myFunction = () => {
-        this.setState({ firstName: "the new value" })
-    }
+const LoginScreen: React.FC<any> = () => {
+    return (
+        <View>
 
-    componentDidMount() {
-        // HTTP Requests
-    }
-
-    render() {
-        return (<View>
-            <Text>Hello LoginScreen</Text>
-            <Text>Hello LoginScreen</Text>
-            <NewText newerName={this.state.firstName} clickButton={this.myFunction} />
-            <Button icon="camera" mode="contained" onPress={() => this.myFunction()}>
-                Press me
-        </Button>
-        </View>)
-    }
+        </View>
+    )
 }
 export default LoginScreen;
 
-interface IProps {
-    newerName: string | number,
-    newAge?: number,
-    clickButton: () => void
-}
 
-type Props = {
-    newerName: string | number,
-    newAge?: number,
-    clickButton: () => void
-}
-
-const NewText: React.FC<IProps> = (anyObjName) => {
-    const [companyName, setCompanyName] = React.useState<string | number>('Crayon');
-    const [anotherState, setAnotherState] = React.useState<number>(0);
-
-    React.useEffect(() => {
-        setCompanyName(anyObjName.newerName)
-    }, [anyObjName])
-
-    return (<View>
-        <Button onPress={() => anyObjName.clickButton}>Click</Button>
-        <Text style={{ fontSize: 50 }}>{companyName}</Text>
-    </View>)
-}
-
+const styles = StyleSheet.create({
+    base: {
+        flex: 1,
+        paddingLeft: 16,
+        paddingRight: 16,
+        alignContent: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#ffffff',
+    },
+    divider: {
+        height: 16,
+    },
+    headline: {
+        fontSize: 30,
+    },
+    appDesc: {
+        textAlign: 'center',
+    },
+    header: {
+        padding: 32,
+    },
+    appTitle: {
+        textAlign: 'center',
+        fontSize: 35,
+        lineHeight: 35,
+        fontWeight: '700',
+    },
+    btn: {
+        height: 50,
+        paddingTop: 6,
+    },
+});
