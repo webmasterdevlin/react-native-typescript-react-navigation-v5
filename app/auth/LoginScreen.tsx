@@ -5,7 +5,7 @@ import {
 } from 'react-native-paper';
 
 
-const LoginScreen: React.FC<any> = () => {
+const LoginScreen: React.FC<any> = (props) => {
     return (
         <View style={styles.base}>
             <>
@@ -27,7 +27,9 @@ const LoginScreen: React.FC<any> = () => {
                 <View style={styles.divider} />
                 <Button disabled={false}
                     style={styles.btn} mode="contained"
-                    onPress={() => { }}>Login</Button>
+                    onPress={() => {
+                        props.navigation.navigate('todoListScreen')
+                    }}>Login</Button>
                 <View style={styles.divider} />
                 <View style={styles.divider} />
             </>

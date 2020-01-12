@@ -14,7 +14,7 @@ export default function RootNavigation() {
                     name="loginScreen"
                     component={LoginScreen} />
                 <Stack.Screen
-                    name="homeScreen"
+                    name="todoListScreen"
                     component={TodoListScreen}
                     options={{ title: 'My Todo List' }} />
             </Stack.Navigator>
