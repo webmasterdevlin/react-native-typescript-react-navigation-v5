@@ -36,6 +36,12 @@ $ npm install @react-native-community/masked-view
 additional configuration
 ![app](./assets/ios-and-android-config.png)
 
+Copy then paste it
+```shell script
+$ implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+$ implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
+```
+
 ![app](./assets/android.png)
 
 #### Adding React Native Paper
