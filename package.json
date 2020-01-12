@@ -1,11 +1,12 @@
 {
-  "name": "RnTsDemo2",
+  "name": "react-native-ts",
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "reset": "react-native start --reset-cache",
+    "backend": "json-server --watch db.json --port 5000 --delay=750",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "reset": "react-native start --reset-cache",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
@@ -14,6 +15,7 @@
     "@react-native-community/masked-view": "^0.1.5",
     "@react-navigation/native": "^5.0.0-alpha.24",
     "@react-navigation/stack": "^5.0.0-alpha.58",
+    "axios": "^0.19.1",
     "react": "16.9.0",
     "react-native": "0.61.5",
     "react-native-gesture-handler": "^1.5.3",
@@ -28,6 +30,7 @@
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/jest": "^24.0.24",
+    "@types/react": "^16.9.17",
     "@types/react-native": "^0.60.25",
     "@types/react-test-renderer": "16.9.1",
     "@typescript-eslint/eslint-plugin": "^2.12.0",
@@ -35,6 +38,7 @@
     "babel-jest": "^24.9.0",
     "eslint": "^6.5.1",
     "jest": "^24.9.0",
+    "json-server": "^0.15.1",
     "metro-react-native-babel-preset": "^0.56.0",
     "react-test-renderer": "16.9.0",
     "typescript": "^3.7.3"
