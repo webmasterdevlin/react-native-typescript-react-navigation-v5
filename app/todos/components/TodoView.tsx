@@ -93,12 +93,16 @@ const TodoView: React.FC<IProps> = ({ item, removeTodoFromList, updateList }) =>
                     <Dialog.Content>
                         <View style={{ marginBottom: 20 }}>
                             <View style={styles.divider} />
-                            <TextInput />
+                            <TextInput value={todoForUpdate.title}
+                                onChangeText={handleTitleChange} />
                             <View style={styles.divider} />
-                            <TextInput />
+                            <TextInput value={todoForUpdate.description}
+                                multiline numberOfLines={4}
+                                onChangeText={handleDescriptionChange} />
                         </View>
                         <View style={{ flexDirection: 'row', alignContent: 'center' }}>
-                            <Switch />
+                            <Switch value={todoForUpdate.finished}
+                                onValueChange={handleFinishedChange} />
                             <Paragraph style={{ paddingLeft: 16, alignSelf: 'center' }}>
                                 Finished
                             </Paragraph>
@@ -112,7 +116,8 @@ const TodoView: React.FC<IProps> = ({ item, removeTodoFromList, updateList }) =>
                         </Button>
                         <View style={{ flex: 1 }} />
                         <Button onPress={() => setVisible(false)} >Cancel</Button>
-                        <Button >Update</Button>
+                        <Button loading={updateLoading}
+                            onPress={() => updateTodoFromDialog()} >Update</Button>
                     </Dialog.Actions>
                 </Dialog>
             </Portal>
