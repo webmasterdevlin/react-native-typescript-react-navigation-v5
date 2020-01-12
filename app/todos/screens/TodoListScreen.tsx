@@ -5,6 +5,7 @@ import {
 } from 'react-native-paper';
 import { ITodoModel } from '../todo-model';
 import { getTodos } from '../todo-service';
+import TodoView from '../components/TodoView';
 
 const TodoListScreen: React.FC<void> = () => {
     const [todos, setTodos] = React.useState<ITodoModel[]>([]);
@@ -36,7 +37,7 @@ const TodoListScreen: React.FC<void> = () => {
                     <View style={styles.base}>
                         {todos.map(todo => (
                             <View key={todo.id}>
-                                <Text>{todo.title}</Text>
+                                <TodoView item={todo} />
                             </View>
                         ))}
                     </View>
