@@ -7,6 +7,7 @@ import { ITodoModel } from '../todo-model';
 import { getTodos } from '../todo-service';
 
 const TodoListScreen: React.FC<void> = () => {
+    const [todos, setTodos] = React.useState<ITodoModel[]>([])
     const [loading, setLoading] = React.useState<boolean>(false)
     return (
         <>
@@ -14,13 +15,20 @@ const TodoListScreen: React.FC<void> = () => {
                 <View style={styles.loaderBase}>
                     <ActivityIndicator animating size="large" />
                 </View>
-            )}
+            ) : (
+                    <View style={styles.base}>
+                        {todos.map(todo => (
+                            <View key={todo.id}>
+                                <Text>{todo.title}</Text>
+                            </View>
+                        ))}
+                    </View>
+                )}
         </>
     )
 }
 
 export default TodoListScreen;
-
 
 const styles = StyleSheet.create({
     base: {
