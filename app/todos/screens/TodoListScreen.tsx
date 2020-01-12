@@ -9,11 +9,16 @@ import { getTodos } from '../todo-service';
 const TodoListScreen: React.FC<void> = () => {
     const [todos, setTodos] = React.useState<ITodoModel[]>([]);
     const [loading, setLoading] = React.useState<boolean>(false);
+    const [error, setError] = React.useState<string>('');
 
     const fetch = async () => {
         setLoading(true);
-        const { data } = await getTodos(); // response.data
-        setTodos(data);
+        try {
+            const { data } = await getTodos(); // response.data
+            setTodos(data);
+        } catch (e) {
+            setError(e.message)
+        }
         setLoading(false);
     }
 
@@ -36,6 +41,26 @@ const TodoListScreen: React.FC<void> = () => {
                         ))}
                     </View>
                 )}
+            <>
+                <Portal>
+                    <Snackbar
+                        visible={error.length > 0}
+                        duration={5000}
+                        action={{
+                            label: 'close [x]',
+                            onPress: () => {
+                                setError('');
+                            },
+                        }}
+                        onDismiss={async () => {
+                            setError('');
+                            await fetch();
+                        }}
+                    >
+                        {error}
+                    </Snackbar>
+                </Portal>
+            </>
         </>
     )
 }
