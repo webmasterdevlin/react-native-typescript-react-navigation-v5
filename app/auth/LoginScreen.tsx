@@ -7,8 +7,14 @@ import {
 
 const LoginScreen: React.FC<any> = () => {
     return (
-        <View>
-
+        <View style={styles.base}>
+            <>
+                <StatusBar backgroundColor="#ffffff" />
+            </>
+            <View style={styles.header}>
+                <Headline style={styles.appTitle} >Todo App</Headline>
+                <Paragraph style={styles.appDesc}>Inmeta React Native Course</Paragraph>
+            </View>
         </View>
     )
 }
