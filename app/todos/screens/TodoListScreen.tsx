@@ -23,6 +23,10 @@ const TodoListScreen: React.FC<void> = () => {
         setLoading(false);
     }
 
+    const handleDeleteFromList = (value: string) => {
+        setTodos([...todos.filter(item => item.id !== value)])
+    }
+
     React.useEffect(() => {
         fetch()
     }, [])
@@ -37,7 +41,9 @@ const TodoListScreen: React.FC<void> = () => {
                     <View style={styles.base}>
                         {todos.map(todo => (
                             <View key={todo.id}>
-                                <TodoView item={todo} />
+                                <TodoView
+                                    removeTodoFromList={handleDeleteFromList}
+                                    item={todo} />
                             </View>
                         ))}
                     </View>
