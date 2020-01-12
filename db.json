@@ -4,7 +4,7 @@
       "title": "Cook",
       "description": "Cook steak",
       "id": "GLGN0VP",
-      "finished": false
+      "finished": true
     },
     {
       "title": "Pimp my Tesla",
@@ -15,17 +15,14 @@
     {
       "title": "Coffee",
       "description": "Latte",
-      "id": "-WG7nJg"
+      "id": "-WG7nJg",
+      "finished": true
     },
     {
       "title": "Coffee break",
       "description": "Espresso",
-      "id": "At_SvVt"
-    },
-    {
-      "title": "Coffee",
-      "description": "Latte",
-      "id": "MzFZUP2"
+      "id": "At_SvVt",
+      "finished": true
     }
   ]
 }
