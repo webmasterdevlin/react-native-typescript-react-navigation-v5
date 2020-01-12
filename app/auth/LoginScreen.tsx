@@ -19,7 +19,7 @@ class LoginScreen extends React.Component {
         return (<View>
             <Text>Hello LoginScreen</Text>
             <Text>Hello LoginScreen</Text>
-            <NewText newerName="Crayon" clickButton={this.myFunction} />
+            <NewText newerName={this.state.firstName} clickButton={this.myFunction} />
             <Button icon="camera" mode="contained" onPress={() => this.myFunction()}>
                 Press me
         </Button>
@@ -29,24 +29,24 @@ class LoginScreen extends React.Component {
 export default LoginScreen;
 
 interface IProps {
-    newerName: string | number | boolean,
+    newerName: string | number,
     newAge?: number,
     clickButton: () => void
 }
 
 type Props = {
-    newerName: string | number | boolean,
+    newerName: string | number,
     newAge?: number,
     clickButton: () => void
 }
 
 const NewText: React.FC<IProps> = (anyObjName) => {
-    const [companyName, setCompanyName] = React.useState('Crayon');
-    const [anotherState, setAnotherState] = React.useState(0);
+    const [companyName, setCompanyName] = React.useState<string | number>('Crayon');
+    const [anotherState, setAnotherState] = React.useState<number>(0);
 
     React.useEffect(() => {
         setCompanyName(anyObjName.newerName)
-    }, [])
+    }, [anyObjName])
 
     return (<View>
         <Button onPress={() => anyObjName.clickButton}>Click</Button>
