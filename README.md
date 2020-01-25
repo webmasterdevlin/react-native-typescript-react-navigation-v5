@@ -10,6 +10,7 @@ Let's create a React Native app with TypeScript and React Navigation vNext (5.0)
 
 ```sh
 $ npm uninstall -g react-native-cli
+$ npm i -g @react-native-community/cli
 ```
 Open up a terminal that points to your Desktop.
 Then start creating a React Native in TypeScript project
